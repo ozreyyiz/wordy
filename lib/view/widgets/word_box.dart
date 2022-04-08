@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/constants/word_text_style.dart';
 
 class WordBox extends StatelessWidget {
   const WordBox({
@@ -13,16 +14,27 @@ class WordBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: size.height / 3,
-      width: size.width,
+    return Material(
       color: Colors.black,
-      child: Center(
-        child: Text(
-          text,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 30,
+      elevation: 20,
+      child: Container(
+        height: size.height / 3.5,
+        width: size.width - 20,
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(colors: [
+          Color.fromARGB(255, 5, 19, 30),
+          Color.fromARGB(255, 0, 0, 0),
+        ])),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                text,
+                style: wordTextStyle,
+              ),
+              Text("",style: TextStyle(color: Colors.white),),
+            ],
           ),
         ),
       ),
