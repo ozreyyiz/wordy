@@ -23,11 +23,13 @@ class _WordAddPageState extends State<WordAddPage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               TextFormField(
+                maxLength: 30,
                 controller: engWordController,
                 style: textStyle(),
                 decoration: inputDecoration("English"),
               ),
               TextFormField(
+                maxLength: 30,
                 controller: engWordController,
                 style: textStyle(),
                 decoration: inputDecoration("Turkish"),
