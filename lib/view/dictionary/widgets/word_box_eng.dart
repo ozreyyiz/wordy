@@ -73,14 +73,14 @@ class WordBoxEng extends StatelessWidget {
                 sentenceone == ""
                     ? SizedBox()
                     : Text(
-                        "- mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm",
+                        "- "+sentenceone,textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white),
                       ),
                 const SizedBox(height: 5),
                 sentencetwo == ""
                     ? SizedBox()
                     : Text(
-                        "- " + sentencetwo,
+                        "- " + sentencetwo,textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white),
                       ),
               ],

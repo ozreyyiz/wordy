@@ -14,6 +14,7 @@ class Word {
   });
 
   Map<String, dynamic> toJson() => {
+        "id": id,
         "english_word": englishWord,
         "turkish_word": turkishWord,
         "sentenceone": sentenceone,
@@ -25,6 +26,7 @@ class Word {
       turkishWord: json["turkish_word"],
       sentenceone: json["sentenceone"],
       sentencetwo: json["sentencetwo"],
+      id: json["id"],
     );
   }
 }

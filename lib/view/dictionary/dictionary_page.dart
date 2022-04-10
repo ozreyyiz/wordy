@@ -3,8 +3,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:wordy/core/base/word_modal.dart';
 import 'package:wordy/core/constants/boxDecorationConts.dart';
+import 'package:wordy/view/dictionary/widgets/refresh_word_button.dart';
 import 'package:wordy/view/dictionary/widgets/add_button.dart';
-import 'package:wordy/view/dictionary/word_add_page.dart';
+import 'package:wordy/view/dictionary/widgets/set_button.dart';
 import 'package:wordy/view/dictionary/widgets/word_box_eng.dart';
 import 'package:wordy/view/dictionary/widgets/word_box_tr.dart';
 
@@ -49,7 +50,7 @@ class _DictionaryPageState extends State<DictionaryPage> {
                         ),
                         WordBoxEng(
                           size: size,
-                          text: "x",
+                          text: word.englishWord,
                           sentenceone: word.sentenceone,
                           sentencetwo: word.sentencetwo,
                         ),
@@ -57,15 +58,10 @@ class _DictionaryPageState extends State<DictionaryPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             AddButton(),
-                            ElevatedButton(
-                              onPressed: () {},
-                              child: const Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: 40, vertical: 20),
-                                child: Icon(Icons.cached),
-                              ),
+                            RefreshWordButton(),
+                            SetButton(
+                              word: word,
                             ),
-                            SetButton(),
                           ],
                         )
                       ],
@@ -89,25 +85,3 @@ class _DictionaryPageState extends State<DictionaryPage> {
     );
   }
 }
-
-class SetButton extends StatelessWidget {
-  const SetButton({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      shape: CircleBorder(),
-      padding: EdgeInsets.all(20),
-      fillColor: Colors.blue,
-      onPressed: () {},
-      child: Icon(
-        Icons.mode_edit,
-        color: Colors.white,
-      ),
-    );
-  }
-}
-
-
