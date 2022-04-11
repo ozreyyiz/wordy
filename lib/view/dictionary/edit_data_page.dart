@@ -30,6 +30,11 @@ class _EditDataPageState extends State<EditDataPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.black,
+        title: Text("Word Edit Page"),
+      ),
       body: SingleChildScrollView(
         child: Container(
           height: MediaQuery.of(context).size.height,
@@ -37,20 +42,22 @@ class _EditDataPageState extends State<EditDataPage> {
           child: Padding(
             padding: const EdgeInsets.all(15.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                TextFormField(
-                  maxLength: 30,
-                  controller: engWordController,
-                  style: textStyle(),
-                  decoration: inputDecoration("English"),
-                ),
+                const SizedBox(height: 30),
                 TextFormField(
                   maxLength: 30,
                   controller: trWordController,
                   style: textStyle(),
                   decoration: inputDecoration("Turkish"),
                 ),
+                const SizedBox(height: 20),
+                TextFormField(
+                  maxLength: 30,
+                  controller: engWordController,
+                  style: textStyle(),
+                  decoration: inputDecoration("English"),
+                ),
+                const SizedBox(height: 20),
                 Column(
                   children: [
                     TextFormField(
@@ -67,6 +74,7 @@ class _EditDataPageState extends State<EditDataPage> {
                     ),
                   ],
                 ),
+                const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [

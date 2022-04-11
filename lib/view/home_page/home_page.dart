@@ -38,8 +38,8 @@ class _HomePageState extends State<HomePage> {
               ),
               MenuBox(
                 size: size,
-                header: "English - Turkish",
-                smallHeader: "Dictionary",
+                header: "Turkish - English",
+                smallHeader: "Words",
                 function: () {
                   setState(() {
                     Navigator.push(

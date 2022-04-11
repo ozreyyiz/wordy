@@ -26,65 +26,76 @@ class _WordAddPageState extends State<WordAddPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          decoration: backgroundDecorotion,
-          child: Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                TextFormField(
-                  maxLength: 30,
-                  controller: engWordController,
-                  style: textStyle(),
-                  decoration: inputDecoration("English"),
-                ),
-                TextFormField(
-                  maxLength: 30,
-                  controller: trWordController,
-                  style: textStyle(),
-                  decoration: inputDecoration("Turkish"),
-                ),
-                Column(
-                  children: [
-                    TextFormField(
-                      maxLength: 45,
-                      controller: sentenceoneController,
-                      style: textStyle(),
-                      decoration: inputDecoration("1.sentence"),
-                    ),
-                    TextFormField(
-                      maxLength: 45,
-                      controller: sentencetwoController,
-                      style: textStyle(),
-                      decoration: inputDecoration("2.sentence"),
-                    ),
-                  ],
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    final word = Word(
-                      sentenceone: sentenceoneController.text,
-                      sentencetwo: sentencetwoController.text,
-                      englishWord: engWordController.text,
-                      turkishWord: trWordController.text,
-                    );
-                    sentenceoneController.text = "";
-                    sentencetwoController.text = "";
-                    engWordController.text = "";
-                    trWordController.text = "";
-                    addWord(word: word);
-                    Navigator.pop(context);
-                  },
-                  child: const Padding(
-                    padding: EdgeInsets.all(15.0),
-                    child: Text("Add"),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          title: Text("Word Add Page"),
+          centerTitle: true,
+        ),
+        body: SingleChildScrollView(
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            decoration: backgroundDecorotion,
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                children: [
+                  const SizedBox(height: 30),
+                  TextFormField(
+                    maxLength: 30,
+                    controller: trWordController,
+                    style: textStyle(),
+                    decoration: inputDecoration("Turkish"),
                   ),
-                )
-              ],
+                  const SizedBox(height: 20),
+                  TextFormField(
+                    maxLength: 30,
+                    controller: engWordController,
+                    style: textStyle(),
+                    decoration: inputDecoration("English"),
+                  ),
+                  const SizedBox(height: 20),
+                  Column(
+                    children: [
+                      TextFormField(
+                        maxLength: 45,
+                        controller: sentenceoneController,
+                        style: textStyle(),
+                        decoration: inputDecoration("1.sentence"),
+                      ),
+                      TextFormField(
+                        maxLength: 45,
+                        controller: sentencetwoController,
+                        style: textStyle(),
+                        decoration: inputDecoration("2.sentence"),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      final word = Word(
+                        sentenceone: sentenceoneController.text,
+                        sentencetwo: sentencetwoController.text,
+                        englishWord: engWordController.text,
+                        turkishWord: trWordController.text,
+                      );
+                      sentenceoneController.text = "";
+                      sentencetwoController.text = "";
+                      engWordController.text = "";
+                      trWordController.text = "";
+                      addWord(word: word);
+                      Navigator.pop(context);
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.all(15.0),
+                      child: Text("Add"),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
@@ -94,7 +105,7 @@ class _WordAddPageState extends State<WordAddPage> {
 
   TextStyle textStyle() {
     return const TextStyle(
-      fontSize: 25,
+      fontSize: 20,
     );
   }
 
