@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wordy">
    <application
-        android:label="wordy"
+        android:label="Wordy"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
